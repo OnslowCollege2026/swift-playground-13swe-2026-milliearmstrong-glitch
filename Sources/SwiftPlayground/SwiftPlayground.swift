@@ -1,59 +1,81 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
-func totalCost(lunches:[Double]) -> Double{
-    var cost = 0.0
-        for day in lunches{
-            cost += day
-        }
-    return cost
+import Foundation
+
+struct Video: Identifiable {
+    let id: UUID
+    let title: String
+    let dailyRate: Double
 }
 
-func budgetCheck(totalCost: Double, budget: Double) -> Bool {
-    if totalCost > budget {
-        return false
-    } else{
-        return true
-    }
+struct Customer: Identifiable {
+    let id: UUID
+    let name: String
+    let address: String
 }
+
+struct VideoRental {
+    let videoID: Video.ID
+    let customerID: Customer.ID
+    let dayIssued: Int
+    let dayToReturn: Int
+    let wasReturned: Bool
+}
+
+struct Receipt {
+    let videoID: Video.ID
+    let customerID: Customer.ID
+    let pricePaid: Double
+    let overdueFeeCharged: Bool
+}
+
+let videos: [Video] = [
+    Video(id: UUID(), title: "The Matrix", dailyRate: 4.50),
+    Video(id: UUID(), title: "Toy Story", dailyRate: 3.00),
+    Video(id: UUID(), title: "Spirited Away", dailyRate: 4.00),
+    Video(id: UUID(), title: "Interstellar", dailyRate: 5.00),
+    Video(id: UUID(), title: "Moana", dailyRate: 3.50)
+]
+
+let customers: [Customer] = [
+    Customer(id: UUID(), name: "Aroha Ngata", address: "14 Kowhai Street"),
+    Customer(id: UUID(), name: "Liam Patel", address: "8 Tui Avenue"),
+    Customer(id: UUID(), name: "Mia Thompson", address: "22 Rimu Road"),
+    Customer(id: UUID(), name: "Noah Wiremu", address: "3 Pukeko Lane"),
+    Customer(id: UUID(), name: "Eva Chen", address: "11 Nikau Place")
+]
+
+let rentals: [VideoRental] = [
+    VideoRental(videoID: videos[0].id,
+                customerID: customers[0].id,
+                dayIssued: 1, dayToReturn: 3,
+                wasReturned: true),
+    VideoRental(videoID: videos[1].id,
+                customerID: customers[1].id,
+                dayIssued: 2, dayToReturn: 4,
+                wasReturned: false),
+    VideoRental(videoID: videos[2].id,
+                customerID: customers[2].id,
+                dayIssued: 2, dayToReturn: 5,
+                wasReturned: true),
+    VideoRental(videoID: videos[3].id,
+                customerID: customers[3].id,
+                dayIssued: 3, dayToReturn: 6,
+                wasReturned: false),
+    VideoRental(videoID: videos[4].id,
+                customerID: customers[4].id,
+                dayIssued: 4, dayToReturn: 6,
+                wasReturned: true)
+]
 @main
 
 struct SwiftPlayground {
     static func main() {
-        let budget = 35.0
-        let lunches = [6.50, 8.00, 5.75, 9.20, 7.10]
-        var lunchTotal = 0.0
-        //let weekDays = ["monday", "tuesday", "wesnday", "thursday", "friday"]
-        var counter = 1
-        var high = 0.0
-        for day in lunches{
-            lunchTotal += day
-            print("day \(counter): $\(day)")
-            counter += 1
-            if day > high{
-                high = day
-            }
-            if day >= 9{
-                print("High spending day detected")
-            }
-        }
-        var snack_total = 0.0
-        let snack_cost = 2.5
-        while (snack_total < 10){
-            snack_total += snack_cost
-            print("Snack total: $\(snack_total)")
-        }
 
-                print("Lunch total: $\(lunchTotal)")
-        print("Snack total: $\(snack_total)")
-        print("Combined total: $\(snack_total+lunchTotal)")
-        print("Average lunch cost: $\(lunchTotal/5)")
-        if (budgetCheck(totalCost: totalCost(lunches:lunches), budget: budget)) {
-            print("you stayed in budget")
-        }
-        else{
-            print("Warning: You overspent this week")
-        }
-        print("Most expensive lunch: \(high)")
+        let theRecepts = rentals.map {
+            let customerName = customers.first(where: {rentals.customerID == $0.id})
+            "Receipt | Customer: \(customerName.name) | Video: <title> | Base: $<price> | Overdue: <Yes/No>"}
+        //print(theRecepts)
 
 
     }
