@@ -71,10 +71,11 @@ let rentals: [VideoRental] = [
 
 struct SwiftPlayground {
     static func main() {
-
-        let theRecepts = rentals.map {
+let theRecepts = rentals.map {rental in "Receipt | Customer: \(customers.first(where: { $0.id == rental.customerID} )!.name)| Video: \(videos.first(where: { $0.id == rental.videoID })!.title) | Base: $\(videos.first(where: { $0.id == rental.videoID })!.dailyRate * Double(rental.dayIssued))| Overdue: \(if rental.dayIssued > rental.dayToReturn && rental.wasReturned! {v})"}
+        /*let theRecepts = rentals.map {
             let customerName = customers.first(where: {rentals.customerID == $0.id})
             "Receipt | Customer: \(customerName.name) | Video: <title> | Base: $<price> | Overdue: <Yes/No>"}
+            */
         //print(theRecepts)
 
 
