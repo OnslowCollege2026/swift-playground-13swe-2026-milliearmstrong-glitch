@@ -1,28 +1,14 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
-
+    let list = [3, 7, 8, 18]
 @main
 
 struct SwiftPlayground {
     static func main() {
-        let words = ["apple", "cat", "banana", "dog", "grape", "kiwi"]
-        
-        let myWords = words.filter { word in
-        return word.count > 4 }
-        print(myWords)
-        let numbers = [7, 14, 21, 28, 35]
-        let total = numbers.reduce(0) { Result, number in return Result + number}
-        print (total)
-
-        let foods = ["apple", "banana", "grape", "strawberry", "kiwi"]
-        let long = foods.reduce(foods[0]) { result, food in
-            return max(result, food)
-        }
-        print(long)
-
-        let sq = numbers.map { number in 
-        return number * number 
-        }
-        print (sq)
+        let sum = list.reduce(0){$0 + $1}
+        print(sum)
+        let odd = list.filter{$0%2 != 0}
+        print(odd)
+        //let high = list.reduce(0){$1 > $0}
     }
 }
