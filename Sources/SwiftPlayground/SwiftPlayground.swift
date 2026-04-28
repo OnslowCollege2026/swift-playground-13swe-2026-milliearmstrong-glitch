@@ -30,7 +30,10 @@ struct SwiftPlayground {
         func returning(users: [String]) -> [String]{
         print("what is your acount name?")
         let userName = readLine()!
-        return (users.name).filter{$0 == [userName]}
+        var userFound = false
+        while userFound == false{
+            
+        }
     }
     var loop = true
     print(wellcome)
