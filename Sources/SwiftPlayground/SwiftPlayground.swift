@@ -29,8 +29,8 @@ struct SwiftPlayground {
         var users = [ Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
         func returning(users: [String]) -> [String]{
         print("what is your acount name?")
-        let name = readLine()!
-        return users.filter{$0.name == [name]}
+        let userName = readLine()!
+        return (users.name).filter{$0 == [userName]}
     }
     var loop = true
     print(wellcome)
