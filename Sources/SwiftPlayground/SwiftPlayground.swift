@@ -27,10 +27,12 @@ struct SwiftPlayground {
         
         //this is a list of people who are already regrested with the libray
         var users = [ Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
-        func returning(users: [String]) -> [String]{
+        func returning(users: [any]) -> [String]{
         print("what is your acount name?")
         let userName = readLine()!
-        users[0].id
+        for user in users{
+            user.name
+        }
             
         }
     }
