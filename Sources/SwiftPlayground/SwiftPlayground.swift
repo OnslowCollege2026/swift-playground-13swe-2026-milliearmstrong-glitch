@@ -12,20 +12,11 @@ struct Books{
     var copys: Int
     var copysAvalable: Int
 }
-struct Borower{
+struct Borower: Equatable{
     let id: Int
     var name: String
     var bookId: Int
-            func returning() -> Int{
-        print("what is your acount name?")
-        let userName = readLine()!
-        if userName == name{
-            return id
-        }
-        else{
-            return 0
-        }
-}}
+}
 @main
 
 
@@ -37,7 +28,32 @@ struct SwiftPlayground {
         
         //this is a list of people who are already regrested with the libray
         var users = [ Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
+    func nameCheack(use: [String]){
+    var nameInvaled = true
+        print("please enter your name")
+    while nameInvaled == true{
 
+    let userName = readLine()!.lowercased()
+    let M_Ws = users.filter { seen in return (seen.name) == userName}
+    if M_Ws != []{
+        nameInvaled = false
+            if use == ["b"]{
+        print("your copy of")
+        print(bookList.filter { seen in return (seen.id) == M_Ws[0].bookId})
+
+
+        users = users.filter { seen in return (seen.name) != userName}
+        users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: 0))
+
+        print(users)
+        
+    }
+    else{
+        print("sorry we could not find you in our system, please enter your name again")
+    }
+    }}
+
+    }
             
 
     var loop = true
@@ -51,7 +67,7 @@ struct SwiftPlayground {
         loop = false
         
     }
-    (users.name).filter
-    users[1].returning()
+
+nameCheack(use: userImput)
     }
 }}
