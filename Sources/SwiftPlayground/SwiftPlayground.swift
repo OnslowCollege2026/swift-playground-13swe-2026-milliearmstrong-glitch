@@ -171,7 +171,7 @@ struct SwiftPlayground {
     }
     else if line == "e"{
         let M_Ws: [Borower] = nameCheack()
-        if M_Ws[0].bookId == 0{{
+        if M_Ws[0].bookId == 0{
             print("\(M_Ws) has no books on loan")
         }
         else{
