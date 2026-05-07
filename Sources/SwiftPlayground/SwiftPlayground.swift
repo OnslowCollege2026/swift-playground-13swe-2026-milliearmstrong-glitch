@@ -76,9 +76,14 @@ struct SwiftPlayground {
         var users = [Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
         //var numList:[String]
 
-    func nameCheack() -> [Borower]{
+    func nameCheack(anyName: Bool) -> [Borower]{
         var nameInvaled = true
+        if anyName{
+            print("please enter a users name")
+        }
+        else{
             print("please enter your name")
+        }
         while nameInvaled == true{
         let userName = readLine()!.lowercased()
         let M_Ws = users.filter { seen in return (seen.name).lowercased() == userName}
@@ -126,7 +131,7 @@ struct SwiftPlayground {
     let line = vailedCheack(options:letterOptions, ask: options) 
     
     if line == "a"{
-        let M_Ws: [Borower] = nameCheack()
+        let M_Ws: [Borower] = nameCheack(anyName: false)
         let bookId = bookSelection()
         if M_Ws[0].bookId != 0{
             let usersBook = bookLoned(M_Ws: M_Ws)[0].bookTittle
@@ -146,7 +151,7 @@ struct SwiftPlayground {
             }
         }
     else if line == "b"{
-        let M_Ws: [Borower] = nameCheack()
+        let M_Ws: [Borower] = nameCheack(anyName: false)
         switch M_Ws[0].bookId{
                 case 0:
                 print("you have no books to return")
@@ -170,7 +175,7 @@ struct SwiftPlayground {
         catalog()
     }
     else if line == "e"{
-        let M_Ws: [Borower] = nameCheack()
+        let M_Ws: [Borower] = nameCheack(anyName: true)
         if M_Ws[0].bookId == 0{
             print("\(M_Ws[0].name) has no books on loan")
         }
