@@ -188,6 +188,10 @@ struct SwiftPlayground {
     }
     else if line == "f"{
         print("please serch for a book in our system")
+        var bookVaild = true
+        while bookVaild{
         let bookSearch = readLine()!.lowercased()
+        let cheackBookSearch = bookList.filter { book in return (book.bookTittle).lowercased() == bookSearch}
+        }
     }
     }}
