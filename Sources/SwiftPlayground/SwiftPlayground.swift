@@ -132,7 +132,7 @@ struct SwiftPlayground {
     (bookList.filter { seen in return (seen.id) == M_Ws[0].bookId})
     }
     let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
-    let line = vailedCheack(options:letterOptions, ask: options) 
+    let line = vailedCheack(options:letterOptions, ask: options).lowercased()
     
     if line == "a"{
         let M_Ws: [Borower] = nameCheack(anyName: false)
@@ -201,9 +201,16 @@ struct SwiftPlayground {
             cheackBookSearch[0].description()
             let numberLoaned = (cheackBookSearch[0].copys) - (cheackBookSearch[0].copysAvalable)
             if numberLoaned != 0{
-                print("\(cheackBookSearch[0].bookTittle) is on loan to \(numberLoaned) people")
+                
+                switch numberLoaned{
+                    case 1:print("\(cheackBookSearch[0].bookTittle) is on loan to 1 person")
+                    default:                print("\(cheackBookSearch[0].bookTittle) is on loan to \(numberLoaned) people")
+                }
+
                 let peopleLoaned = users.filter{$0.bookId == cheackBookSearch[0].id}
-                print(peopleLoaned)
+                for person in peopleLoaned{
+                    print(person.name)
+                }
             }
         }
         }
