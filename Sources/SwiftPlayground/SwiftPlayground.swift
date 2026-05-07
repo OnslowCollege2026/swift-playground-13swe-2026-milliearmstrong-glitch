@@ -198,8 +198,11 @@ struct SwiftPlayground {
         if cheackBookSearch != []{
             bookInvaild = false
             cheackBookSearch[0].description()
-            if cheackBookSearch[0].copysAvalable != cheackBookSearch[0].copys{
-                (cheackBookSearch[0].copys) - (cheackBookSearch[0].copysAvalable)
+            let numberLoaned = (cheackBookSearch[0].copys) - (cheackBookSearch[0].copysAvalable)
+            if numberLoaned != 0{
+                print("\(cheackBookSearch[0].bookTittle) is on loan to \(numberLoaned) people")
+                let peopleLoaned = users.filter{$0.bookId == cheackBookSearch[0].id}
+                print(peopleLoaned)
             }
         }
         }
