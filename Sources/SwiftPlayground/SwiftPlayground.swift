@@ -172,11 +172,11 @@ struct SwiftPlayground {
     else if line == "e"{
         let M_Ws: [Borower] = nameCheack()
         if M_Ws[0].bookId == 0{
-            print("\(M_Ws) has no books on loan")
+            print("\(M_Ws[0].name) has no books on loan")
         }
         else{
             let usersBook = bookLoned(M_Ws: M_Ws)[0].bookTittle
-            print("\(M_Ws) has \(usersBook) on loan")
+            print("\(M_Ws[0].name) has \(usersBook) on loan")
         }
 
 
