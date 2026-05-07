@@ -199,7 +199,7 @@ struct SwiftPlayground {
             bookInvaild = false
             cheackBookSearch[0].description()
             if cheackBookSearch[0].copysAvalable != cheackBookSearch[0].copys{
-                for cheackBookSearch[0].copys)cheackBookSearch[0].copysAvalable
+                (cheackBookSearch[0].copys) - (cheackBookSearch[0].copysAvalable)
             }
         }
         }
