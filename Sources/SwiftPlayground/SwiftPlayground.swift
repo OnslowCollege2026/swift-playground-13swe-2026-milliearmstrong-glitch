@@ -11,7 +11,7 @@ struct Books: Equatable{
     var copys: Int
     var copysAvalable: Int
     func description(){
-        print("\(bookTittle) by \(bookAuther) has \(copysAvalable) out \(copys) avalable")
+        print("\(bookTittle) by \(bookAuther) has \(copysAvalable) out \(copys) copys avalable")
     }
 }
 struct Borower: Equatable{
@@ -203,8 +203,8 @@ struct SwiftPlayground {
             if numberLoaned != 0{
                 
                 switch numberLoaned{
-                    case 1:print("\(cheackBookSearch[0].bookTittle) is on loan to 1 person")
-                    default:                print("\(cheackBookSearch[0].bookTittle) is on loan to \(numberLoaned) people")
+                    case 1:print("\(cheackBookSearch[0].bookTittle) is on loan to 1 person:")
+                    default:                print("\(cheackBookSearch[0].bookTittle) is on loan to \(numberLoaned) people:")
                 }
 
                 let peopleLoaned = users.filter{$0.bookId == cheackBookSearch[0].id}
