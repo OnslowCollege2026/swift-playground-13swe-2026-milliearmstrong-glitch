@@ -4,12 +4,15 @@
 import Foundation
 //these are all the options the user has to pick from
 let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit borrower records"
-struct Books{
+struct Books: Equatable{
     let id: Int
     var bookTittle: String
     var bookAuther: String
     var copys: Int
     var copysAvalable: Int
+    func description(){
+        print("\(bookTittle) by \(bookAuther) has \(copysAvalable) out \(copys) avalable")
+    }
 }
 struct Borower: Equatable{
     let id: Int
@@ -192,9 +195,14 @@ struct SwiftPlayground {
         while bookInvaild{
         let bookSearch = readLine()!.lowercased()
         let cheackBookSearch = bookList.filter { book in return (book.bookTittle).lowercased() == bookSearch}
-        if cheackBookSearch[0] == Books[]{
-
+        if cheackBookSearch != []{
+            bookInvaild = false
+            cheackBookSearch[0].description()
+            if cheackBookSearch[0].copysAvalable != cheackBookSearch[0].copys{
+                
+            }
         }
         }
+        
     }
     }}
