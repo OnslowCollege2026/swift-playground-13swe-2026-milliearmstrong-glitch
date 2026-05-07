@@ -186,4 +186,7 @@ struct SwiftPlayground {
 
 
     }
+    else if line == "f"{
+        
+    }
     }}
