@@ -187,6 +187,7 @@ struct SwiftPlayground {
 
     }
     else if line == "f"{
-        
+        print("please serch for a book in our system")
+        readLine()!
     }
     }}
