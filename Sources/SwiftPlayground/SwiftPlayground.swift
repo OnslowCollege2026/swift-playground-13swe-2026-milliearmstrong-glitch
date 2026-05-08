@@ -121,19 +121,27 @@ struct SwiftPlayground {
             default: 
             copysChange = -1 
             var userBook = bookList.filter { book in return (book.id) == (bookList[bookId].id)}
+            var userBookIndex = 0
+            var userBookIndexFinal = 0
+            for book in userBook{
+            userBookIndex += 1
+            if userBook[0] == book{
+                userBookIndex = userBookIndexFinal
+                userBook[userBookIndex].copysAvalable += 1
+            }
+        }
             
         }
         if bookList[bookId].copysAvalable != 0{
         bookList[bookId].copysAvalable -= 1
         var userIndex = 0
-        var userIndexFinal = 0
         for user in users{
             userIndex += 1
             if M_Ws[0] == user{
-                userIndexFinal = userIndex
+                users[userIndex].bookId = bookList[bookId].id
             }
         }
-        users[userIndexFinal].bookId = bookList[bookId].id
+
         }
         else{
 
