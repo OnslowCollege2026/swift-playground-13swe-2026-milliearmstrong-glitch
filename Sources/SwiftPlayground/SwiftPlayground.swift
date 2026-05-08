@@ -146,6 +146,8 @@ struct SwiftPlayground {
         else{
             print("sorry, that book is curently cheacked out")
         }
+                            print(bookList)
+                    print(users)
         /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
@@ -190,8 +192,7 @@ struct SwiftPlayground {
                 default:
                     print("done!")
                     updateUserBooks(M_Ws: M_Ws, bookId: bookId)
-                    print(bookList)
-                    print(users)
+
                 }
             }
             else{
