@@ -3,8 +3,9 @@
 //this is the welcome mesage
 import Foundation
 ///all the things the user can do with the records
-let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name\nK.exit the libray"
+let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name\nK.About us\nL.exit the libray"
 ///keeps track of how many books there are, how mnay there are ment to be, and some breif infomation on the book
+let aboutUs = "The we told you so libray is home to a wide ranging and diverse collection of presaint books that will make you go 'oh f**k, we should have listened to them'. After being founded in 2013 throgh a seirse of tax shulter "
 struct Books: Equatable{
     let id: Int
     var bookTittle: String
@@ -26,17 +27,6 @@ struct Borower: Equatable{
 @main
 struct SwiftPlayground {
     static func main() {
-        /*
-        func addBook(bookCount:Int, preExisting:[Books], addBookTittle:String, newBookId: Int, addBookAuthor:String, addBookCount:Int){
-            if bookCount >= 9{
-                print("we already have \(preExisting[0].copys) copys of \(preExisting[0].bookTittle) in our collection, so we can only add \(10 - preExisting[0].copys) more copys")
-                addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
-            }
-            else if bookCount == 10{
-                print("we already have 10 copys of \(preExisting[0].bookTittle) in our collection, so we can not house any more")
-            }
-        }
-        */
         ///prints a random goodbye message for the user
         func thankYou() -> String{
         ///this is a collection of thank you messages presented when the user decides they are finished
@@ -342,6 +332,9 @@ struct SwiftPlayground {
     else if line == "j"{
         let nameEdit = nameCheack(anyName: true)
             users[(users.firstIndex(of: nameEdit[0])!)].name = isNull (ask:"Please enter the new user name")
+    }
+    else if line == "k"{
+        print(aboutUs)
     }
     else{
         print(thankYou())
