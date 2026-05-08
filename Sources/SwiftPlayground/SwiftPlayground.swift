@@ -243,13 +243,8 @@ struct SwiftPlayground {
         var addBookCount: Int = 0
         while invailedCopyCount{
         let addBookCountString = isNull (ask:"Please enter the amont of copys you would like to add, we can only house up to ten of one book")
-                for n in (1...bookList.count){
-            if test == String(n){
-                invailedChoice = false
-            }
-        }
-        for n in (1...bookList.count){
-            if addBookCountString.contains(n){
+                for n in (1...10){
+            if !addBookCountString.contains(String(n)){
             }
             else if Int(addBookCountString)! > 0{
                 addBookCount = Int(addBookCountString)!
