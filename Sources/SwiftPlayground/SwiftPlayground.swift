@@ -153,6 +153,7 @@ struct SwiftPlayground {
     }
     let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
     while stillHere{
+    sleep(1)
     let line = vailedCheack(options:letterOptions, ask: options).lowercased()
     
     if line == "a"{
@@ -277,7 +278,6 @@ struct SwiftPlayground {
         print("what book would you like to remove?")
         bookList.remove(at: bookList.firstIndex(of: bookSelection())!)
         print("you are censoring the people by taking their books, they will not stand for it, this is the begining of the end for media litaralcy\n\n\n\n\nit has been removed")
-        sleep(1)
     }
     else if line == "i"{
         print("what item would you like to edit?")
