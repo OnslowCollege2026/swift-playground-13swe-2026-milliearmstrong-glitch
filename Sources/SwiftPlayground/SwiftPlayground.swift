@@ -116,7 +116,7 @@ struct SwiftPlayground {
     }
     func updateUserBooks(M_Ws:[Borower], bookId: Int){
         var copysChange:Int
-        switch bookId{
+        switch M_Ws[0].bookId{
             case 0: copysChange = 1
             default: copysChange = -1
         }
