@@ -5,7 +5,7 @@ import Foundation
 ///all the things the user can do with the records
 let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name\nK.About us\nL.exit the libray"
 ///keeps track of how many books there are, how mnay there are ment to be, and some breif infomation on the book
-let aboutUs = "The we told you so libray is home to a wide ranging and diverse collection of presaint books that will make you go 'oh f**k, we should have listened to them'. After being founded in 2013 throgh a seirse of tax shulters,  embezlement, and national hoaxes"
+let aboutUs = "The we told you so libray is home to a wide ranging and diverse collection of presaint books that will make you go 'oh f**k, we should have listened to them'. After being founded in 2013 throgh a seirse of tax shulters, state sponsered terosim, embezlement, and national hoaxes we have become the worlds formost depresing libray, narrowly beating out the still smoking ashes of the library of Alexandria. We are built on one founding idea, it's better to stop it but it's quite nice to be right about it either way. So always rember, we told you so"
 struct Books: Equatable{
     let id: Int
     var bookTittle: String
