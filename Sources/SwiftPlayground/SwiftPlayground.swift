@@ -282,13 +282,16 @@ struct SwiftPlayground {
         let editBook = bookSelection()
         //bookList.remove(at: bookList.firstIndex(of: editBook)!)
         if vailedCheack(options:["y","n"], ask: "would you like to edit the tittle?") == "y"{
-            (bookList.firstAp(of: editBook)!) isNull (ask:"Please enter the new tittle")
+            bookList[(bookList.firstIndex(of: editBook)!)].bookTittle = isNull (ask:"Please enter the new tittle")
 
         }
         if vailedCheack(options:["y","n"], ask: "would you like to edit the author?") == "y"{
-            isNull (ask:"Please enter the new author")
+            bookList[(bookList.firstIndex(of: editBook)!)].bookAuther = isNull (ask:"Please enter the new author")
         }
 
+    }
+    else{
+        
     }
 
     }
