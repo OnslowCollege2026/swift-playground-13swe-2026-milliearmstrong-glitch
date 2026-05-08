@@ -121,7 +121,7 @@ struct SwiftPlayground {
             default: copysChange = -1
         }
         if bookList[bookId].copysAvalable != 0{
-        bookList[bookId].copysAvalable -= copysChange
+        bookList[bookId].copysAvalable -= 1
         var userIndex = 0
         var userIndexFinal = 0
         for user in users{
