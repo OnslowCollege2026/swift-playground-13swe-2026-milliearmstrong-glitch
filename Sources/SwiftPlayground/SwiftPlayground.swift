@@ -82,7 +82,7 @@ struct SwiftPlayground {
                 else{
                 askAgain = false
                 //return ((bookList[choice-1]).id)
-                return (choice)
+                return (choice-1)
                 }
         }
         }}
@@ -120,7 +120,14 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
+        if bookList[bookId].copysAvalable != 0{
         bookList[bookId].copysAvalable -= 1 
+        var userIndex = 0
+        var userIndexFound = false
+        while userIndexFound == 0{
+            users
+        }
+        }
         /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
