@@ -115,8 +115,8 @@ struct SwiftPlayground {
         var bookList = [Books(id: 1, bookTittle: "1984", bookAuther: "George Orwell", copys: 3, copysAvalable: 3), Books(id: 2, bookTittle: "the hunger games", bookAuther: "Suzanne Collins", copys: 5, copysAvalable: 4), Books(id: 3, bookTittle: "fahrenheit 451", bookAuther: "Ray Bradbury", copys: 1, copysAvalable: 1), Books(id: 4, bookTittle: "late capitalism", bookAuther: "Ernest Mandel", copys: 2, copysAvalable: 0), Books(id: 5, bookTittle: "the handmaid's tale", bookAuther: "Margaret Atwood",  copys: 2, copysAvalable: 2), Books(id: 6, bookTittle: "I have no mouth and I must scream", bookAuther: "Harlan Ellison", copys: 1, copysAvalable: 1)]
         ///the regerstered users at the libray
         var users = [Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
-    /// finds a spesific user,
-    /// - Parameter anyName: 
+    /// finds a spesific user, if the users imput is not in the system, then it will continue to ask until the user provides a input that is in the system
+    /// - Parameter anyName: some functionalty is trying to get the user to find them self
     /// - Returns: 
     func nameCheack(anyName: Bool) -> [Borower]{
         var nameInvaled = true
