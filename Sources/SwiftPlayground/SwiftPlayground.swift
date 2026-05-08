@@ -236,7 +236,7 @@ struct SwiftPlayground {
             print("\(userBorowing[0].name) has no books on loan")
         }
         else{
-            let usersBook = bookLoned(userBorowing: userBorowing)[0].bookTittle
+            let usersBook = bookLoned(userBorowing: userBorowing).bookTittle
             print("\(userBorowing[0].name) has \(usersBook) on loan")
         }
 
