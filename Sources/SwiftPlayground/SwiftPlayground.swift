@@ -176,8 +176,11 @@ struct SwiftPlayground {
         }
         }
     }
-    func bookLoned(userBorowing:[Borower]) -> [Books]{
-    (bookList.filter { book in return (book.id) == userBorowing[0].bookId})
+    /// finds the book the user has borrowed curently
+    /// - Parameter userBorowing: the user who is has the book
+    /// - Returns: the book entry
+    func bookLoned(userBorowing:[Borower]) -> Books{
+    return (bookList.filter { book in return (book.id) == userBorowing[0].bookId})[0]
     }
     let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
     while stillHere{
@@ -188,7 +191,7 @@ struct SwiftPlayground {
         let userBorowing: [Borower] = nameCheack(anyName: false)
         let bookId = bookSelection().id
         if userBorowing[0].bookId != 0{
-            let usersBook = bookLoned(userBorowing: userBorowing)[0].bookTittle
+            let usersBook = bookLoned(userBorowing: userBorowing).bookTittle
             print("\(userBorowing[0].name) you already have \(usersBook) on loan.")
             print("would you like to either\na.Keep reading \(usersBook) and not ishue a new book\nB.return\(usersBook) and ishue a new book")
             switch vailedCheack(options:["a","b"], ask:"please enter a or b") {
@@ -210,7 +213,7 @@ struct SwiftPlayground {
                 print("you have no books to return")
                 default:
                 let bookEntry = bookLoned(userBorowing: userBorowing)
-                print("Your copy of \(bookEntry[0].bookTittle) has been returned")
+                print("Your copy of \(bookEntry.bookTittle) has been returned")
                 updateUserBooks(userBorowing: userBorowing, bookId: 0)
                 print(bookList)
                 print(users)}
