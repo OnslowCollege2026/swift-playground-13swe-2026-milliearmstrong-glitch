@@ -25,9 +25,12 @@ struct Borower: Equatable{
 struct SwiftPlayground {
     static func main() {
         func thankYou() -> String{
+        //this is a collection of thank you messages presented when the user decides they are finished
         let messages = ["Thank you  for visiting I told you so libray, where every book tried to warn you.", "We hope to see you again, but until then, rember, we told you so", "Until we see you agian, rember, we tried to warn you", "Thanks for coming, we hope to see you again, until then, rember, we told you so", "We hope you enjoyed being wanred", "We tried to warn you, the rest is up to you","do something about the world now, becuse we tried to warn you", "dont just sit there, we tried to warn you", "dont forget, we told you so", "We told you so"]
+        //they are randomly gived using this code
         return(messages[Int.random(in: 1..<(messages.count-1))])
     }
+    
         func addNewBook(newBookId: Int, addBookTittle: String, addBookAuthor:String, addBookCount: Int){
             bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
             print("\(addBookTittle) has been added, thank you!")
@@ -106,28 +109,28 @@ struct SwiftPlayground {
         }
         while nameInvaled == true{
         let userName = readLine()!.lowercased()
-        let M_Ws = users.filter { seen in return (seen.name).lowercased() == userName}
-        if M_Ws != []{
+        let userSelectedBook = users.filter { book in return (book.name).lowercased() == userName}
+        if userSelectedBook != []{
             nameInvaled = false
-            return M_Ws
+            return userSelectedBook
         }    else{
             print("sorry we could not find you in our system, please enter your name again")
         }
         
     }
     }
-    func updateUserBooks(M_Ws:[Borower], bookId: Int){
+    func updateUserBooks(userSelectedBook:[Borower], bookId: Int){
         var copysChange:Int
         switch bookId{
             case 0: copysChange = 1
             default: copysChange = -1
         }
-        users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
-        users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
+        users = users.filter { user in return (user.name) != (userSelectedBook[0].name)} 
+        users.append(Borower(id: userSelectedBook[0].id, name: userSelectedBook[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
-        let userCurent = bookList.filter { book in return (book.id) == (M_Ws[0].bookId)} 
+        let userCurent = bookList.filter { book in return (book.id) == (userSelectedBook[0].bookId)} 
         userBook.append(bookList[0])
-        bookList = bookList.filter { book in return (book.id) != (M_Ws[0].bookId)} 
+        bookList = bookList.filter { book in return (book.id) != (userSelectedBook[0].bookId)} 
         bookList = bookList.filter { book in return (book.id) != (userBook[0].id)} 
         bookList.append(Books(id: userCurent[0].id, bookTittle: userCurent[0].bookTittle, bookAuther: userCurent[0].bookAuther, copys: userCurent[0].copys, copysAvalable: (userCurent[0].copysAvalable) - copysChange))
         bookList.append(Books(id: userBook[0].id, bookTittle: userBook[0].bookTittle, bookAuther: userBook[0].bookAuther, copys: userBook[0].copys, copysAvalable: (userBook[0].copysAvalable) + copysChange))
@@ -145,8 +148,8 @@ struct SwiftPlayground {
         }
         }
     }
-    func bookLoned(M_Ws:[Borower]) -> [Books]{
-    (bookList.filter { seen in return (seen.id) == M_Ws[0].bookId})
+    func bookLoned(userSelectedBook:[Borower]) -> [Books]{
+    (bookList.filter { book in return (book.id) == userSelectedBook[0].bookId})
     }
     let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
     while stillHere{
@@ -154,33 +157,33 @@ struct SwiftPlayground {
     let line = vailedCheack(options:letterOptions, ask: options).lowercased()
     
     if line == "a"{
-        let M_Ws: [Borower] = nameCheack(anyName: false)
+        let userSelectedBook: [Borower] = nameCheack(anyName: false)
         let bookId = bookSelection().id
-        if M_Ws[0].bookId != 0{
-            let usersBook = bookLoned(M_Ws: M_Ws)[0].bookTittle
-            print("\(M_Ws[0].name) you already have \(usersBook) on loan.")
+        if userSelectedBook[0].bookId != 0{
+            let usersBook = bookLoned(userSelectedBook: userSelectedBook)[0].bookTittle
+            print("\(userSelectedBook[0].name) you already have \(usersBook) on loan.")
             print("would you like to either\na.Keep reading \(usersBook) and not ishue a new book\nB.return\(usersBook) and ishue a new book")
             switch vailedCheack(options:["a","b"], ask:"please enter a or b") {
                 case "a": 
                 print("ok")
                 default:
                     print("done!")
-                    updateUserBooks(M_Ws: M_Ws, bookId: bookId)
+                    updateUserBooks(userSelectedBook: userSelectedBook, bookId: bookId)
                 }
             }
             else{
-                updateUserBooks(M_Ws: M_Ws, bookId: bookId)
+                updateUserBooks(userSelectedBook: userSelectedBook, bookId: bookId)
             }
         }
     else if line == "b"{
-        let M_Ws: [Borower] = nameCheack(anyName: false)
-        switch M_Ws[0].bookId{
+        let userSelectedBook: [Borower] = nameCheack(anyName: false)
+        switch userSelectedBook[0].bookId{
                 case 0:
                 print("you have no books to return")
                 default:
-                let bookEntry = bookLoned(M_Ws: M_Ws)
+                let bookEntry = bookLoned(userSelectedBook: userSelectedBook)
                 print("Your copy of \(bookEntry[0].bookTittle) has been returned")
-                updateUserBooks(M_Ws: M_Ws, bookId: 0)
+                updateUserBooks(userSelectedBook: userSelectedBook, bookId: 0)
                 print(bookList)
                 print(users)}
     }
@@ -197,13 +200,13 @@ struct SwiftPlayground {
         catalog()
     }
     else if line == "e"{
-        let M_Ws: [Borower] = nameCheack(anyName: true)
-        if M_Ws[0].bookId == 0{
-            print("\(M_Ws[0].name) has no books on loan")
+        let userSelectedBook: [Borower] = nameCheack(anyName: true)
+        if userSelectedBook[0].bookId == 0{
+            print("\(userSelectedBook[0].name) has no books on loan")
         }
         else{
-            let usersBook = bookLoned(M_Ws: M_Ws)[0].bookTittle
-            print("\(M_Ws[0].name) has \(usersBook) on loan")
+            let usersBook = bookLoned(userSelectedBook: userSelectedBook)[0].bookTittle
+            print("\(userSelectedBook[0].name) has \(usersBook) on loan")
         }
 
 
