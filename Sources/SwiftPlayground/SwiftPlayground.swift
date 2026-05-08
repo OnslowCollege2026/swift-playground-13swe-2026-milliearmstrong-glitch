@@ -120,7 +120,7 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
-        bookList[bookId].bookTittle
+        bookList[bookId].copysAvalable -= 1 
         /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
