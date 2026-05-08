@@ -151,7 +151,9 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
+        //this filters out the user from the user list
         users = users.filter { user in return (user.name) != (userBorowing[0].name)} 
+        //this adds the user back with the new updated 
         users.append(Borower(id: userBorowing[0].id, name: userBorowing[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
         let userCurent = bookList.filter { book in return (book.id) == (userBorowing[0].bookId)} 
