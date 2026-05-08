@@ -275,7 +275,7 @@ struct SwiftPlayground {
     else if line == "h"{
         print("what book would you like to remove?")
         bookSelection()
-
+        print("you are censoring the people by taking their books")
     }
 
     }
