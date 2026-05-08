@@ -42,7 +42,6 @@ struct SwiftPlayground {
                 }
             }
         }
-        let alphabet = "abcdefghijklmnopqrstuvwxyz"
         var stillHere = true
         let wellcome:String = "wellcome to the 'Told You So Libry', where every book tried to warn you, what are you looking to do today?"
         func catalog(){
