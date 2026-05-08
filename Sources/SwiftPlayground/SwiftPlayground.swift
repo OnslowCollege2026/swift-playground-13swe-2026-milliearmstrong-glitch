@@ -68,16 +68,16 @@ struct SwiftPlayground {
         while askAgain{
         print("please enter the corosponding number")
         let test = readLine()!.lowercased()
-        var vailedChoice = true
+        var invailedChoice = true
         if test == ""{
-            vailedChoice = false
+            invailedChoice = true
         }
-        for chr in (alphabet){
-            if test.contains(chr){
-                vailedChoice = false
+        for n in (1...bookList.count){
+            if test == String(n){
+                invailedChoice = false
             }
         }
-        if vailedChoice{
+        if invailedChoice == false{
             let choice = Int(test)!
             if choice <= bookList.count && choice >= 1{
                 if (bookList[choice-1]).copysAvalable == 0{
