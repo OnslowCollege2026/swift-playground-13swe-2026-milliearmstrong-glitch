@@ -138,6 +138,10 @@ struct SwiftPlayground {
         
     }
     }
+    /// 
+    /// - Parameters:
+    ///   - userSelectedBook: the book the us
+    ///   - bookId: to avoid serching for spesific indexs of the instances of the books and users that need to be updated, this function goes throgh and dealtes the organle instances and replaces them with updated versions of them
     func updateUserBooks(userSelectedBook:[Borower], bookId: Int){
         var copysChange:Int
         switch bookId{
