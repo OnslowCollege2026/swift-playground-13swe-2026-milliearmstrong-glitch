@@ -2,9 +2,9 @@
 // https://docs.swift.org/swift-book
 //this is the welcome mesage
 import Foundation
-///these are all the things the user can do with the records
+///all the things the user can do with the records
 let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name\nK.exit the libray"
-///the struct whitch keeps track of how many books there are, how mnay there are ment to be, and 
+///keeps track of how many books there are, how mnay there are ment to be, and some breif infomation on the book
 struct Books: Equatable{
     let id: Int
     var bookTittle: String
@@ -15,6 +15,7 @@ struct Books: Equatable{
         print("\(bookTittle) by \(bookAuther) has \(copysAvalable) out \(copys) copys avalable")
     }
 }
+///contains the borower name, there unique id, and the id of the book they have out . if the user has no book out, the bookId is set to zero
 struct Borower: Equatable{
     let id: Int
     var name: String
@@ -25,6 +26,7 @@ struct Borower: Equatable{
 @main
 struct SwiftPlayground {
     static func main() {
+        ///prints a random goodbye message for the user
         func thankYou() -> String{
         ///this is a collection of thank you messages presented when the user decides they are finished
         let messages = ["Thank you  for visiting I told you so libray, where every book tried to warn you.", "We hope to see you again, but until then, rember, we told you so", "Until we see you agian, rember, we tried to warn you", "Thanks for coming, we hope to see you again, until then, rember, we told you so", "We hope you enjoyed being wanred", "We tried to warn you, the rest is up to you","do something about the world now, becuse we tried to warn you", "dont just sit there, we tried to warn you", "dont forget, we told you so", "We told you so"]
@@ -55,7 +57,7 @@ struct SwiftPlayground {
                 }
             }
         }
-        ///still here is what keeps track of weather the user wants to continue interacting with the interface, or is finished, when the user is finished, this would be set to false and the while loop would end
+        ///keeps track of weather the user wants to continue interacting with the interface, or is finished, when the user is finished, this would be set to false and the while loop would end
         var stillHere = true
         ///wellcome message
         let wellcome: String = "wellcome to the 'Told You So Libry', where every book tried to warn you, what are you looking to do today?"
