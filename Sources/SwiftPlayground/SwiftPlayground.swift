@@ -120,8 +120,8 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
-        users[]
-        
+        bookList[bookId].bookTittle
+        /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
@@ -131,6 +131,7 @@ struct SwiftPlayground {
         bookList = bookList.filter { book in return (book.id) != (userBook[0].id)} 
         bookList.append(Books(id: userCurent[0].id, bookTittle: userCurent[0].bookTittle, bookAuther: userCurent[0].bookAuther, copys: userCurent[0].copys, copysAvalable: (userCurent[0].copysAvalable) - copysChange))
         bookList.append(Books(id: userBook[0].id, bookTittle: userBook[0].bookTittle, bookAuther: userBook[0].bookAuther, copys: userBook[0].copys, copysAvalable: (userBook[0].copysAvalable) + copysChange))
+        */
     }
     print(wellcome)
     func vailedCheack(options:[String], ask: String)-> String{
