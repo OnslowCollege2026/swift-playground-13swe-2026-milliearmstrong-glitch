@@ -123,10 +123,14 @@ struct SwiftPlayground {
         if bookList[bookId].copysAvalable != 0{
         bookList[bookId].copysAvalable -= 1 
         var userIndex = 0
-        var userIndexFound = false
-        while userIndexFound == 0{
-            users
+        var userIndexFinal = 0
+        for user in users{
+            userIndex += 1
+            if M_Ws[0] == user{
+                userIndexFinal = userIndex
+            }
         }
+        users[userIndexFinal].bookId = bookList[bookId].id
         }
         /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
