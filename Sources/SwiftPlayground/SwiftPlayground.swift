@@ -26,6 +26,15 @@ struct Borower: Equatable{
 @main
 struct SwiftPlayground {
     static func main() {
+        func addBook(bookCount:Int, preExisting:[Books], addBookTittle:String, newBookId: Int, addBookAuthor:String, addBookCount:Int){
+            if bookCount >= 9{
+                print("we already have \(preExisting[0].copys) copys of \(preExisting[0].bookTittle) in our collection, so we can only add \(10 - preExisting[0].copys) more copys")
+                addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
+            }
+            else if bookCount == 10{
+                print("we already have 10 copys of \(preExisting[0].bookTittle) in our collection, so we can not house any more")
+            }
+        }
         ///prints a random goodbye message for the user
         func thankYou() -> String{
         ///this is a collection of thank you messages presented when the user decides they are finished
