@@ -27,6 +27,19 @@ struct Borower: Equatable{
 @main
 struct SwiftPlayground {
     static func main() {
+
+        func isNull (ask:String) -> String{
+            while true{
+                print(ask)
+                let input = readLine()!
+                if input != ""{
+                    return input
+                }
+            }
+
+
+        }
+        let alphabet = "abcdefghijklmnopqrstuvwxyz"
         let wellcome:String = "wellcome to the 'Told You So Libry', where every book tried to warn you, what are you looking to do today?"
         func catalog(){
             var loop = 0
@@ -55,7 +68,7 @@ struct SwiftPlayground {
         if test == ""{
             vailedChoice = false
         }
-        for chr in ("abcdefghijklmnopqrstuvwxyz"){
+        for chr in (alphabet){
             if test.contains(chr){
                 vailedChoice = false
             }
@@ -106,6 +119,8 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
+        
+        
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
@@ -191,9 +206,10 @@ struct SwiftPlayground {
 
     }
     else if line == "f"{
-        print("please serch for a book in our system")
+        
         var bookInvaild = true
         while bookInvaild{
+            print("please serch for a book in our system")
         let bookSearch = readLine()!.lowercased()
         let cheackBookSearch = bookList.filter { book in return (book.bookTittle).lowercased() == bookSearch}
         if cheackBookSearch != []{
@@ -216,4 +232,47 @@ struct SwiftPlayground {
         }
         
     }
-    }}
+    
+    else if line == "g"{
+        print("what would you like to add to the collection?")
+        let addBookTittle = isNull (ask:"Please enter the Tittle, be awear that this is case sensative")
+        let addBookAuthor = isNull (ask:"Please enter the Author, be awear that this is case sensative")
+        var invailedCopyCount = true
+        var addBookCount: Int = 0
+        while invailedCopyCount{
+        let addBookCountString = isNull (ask:"Please enter the amont of copys you would like to add, we can only house up to ten of one book")
+        for chr in alphabet{
+            if addBookCountString.contains(chr){
+            }
+            else if Int(addBookCountString)! > 0{
+                addBookCount = Int(addBookCountString)!
+                invailedCopyCount = false
+                }
+            }}
+        let preExisting = bookList.filter{$0.bookTittle == addBookTittle && $0.bookAuther == addBookAuthor}
+        if preExisting != []{
+            print("\(addBookTittle) by \(addBookAuthor) is already in our catalog")
+            let colectiveBookCount = preExisting[0].copys + addBookCount
+            if colectiveBookCount >= 9{
+                print("we already have \(preExisting[0].copys) copys of \(preExisting[0].bookTittle) in our collection, so we can only add \(10 - preExisting[0].copys) more copys")
+                print(bookList)
+            }
+            else if colectiveBookCount == 10{
+                print("we already have 10 copys of \(preExisting[0].bookTittle) in our collection, so we can not house any more")
+                bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
+                print(bookList)
+            }
+        }
+        else{
+            let allBookId = bookList.map{$0.id}
+            let newBookId = (allBookId.reduce(allBookId[0]) {result, number in
+            return max(result, number)})+1
+            bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
+            print("\(addBookTittle) has been added, thank you!")
+            print(bookList)
+        }
+                
+        }
+
+    }
+    }
