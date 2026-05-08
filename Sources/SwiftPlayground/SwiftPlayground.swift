@@ -116,8 +116,8 @@ struct SwiftPlayground {
         ///the regerstered users at the libray
         var users = [Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
     /// finds a spesific user, if the users imput is not in the system, then it will continue to ask until the user provides a input that is in the system
-    /// - Parameter anyName: some functionalty is trying to get the user to find them self
-    /// - Returns: 
+    /// - Parameter anyName: some functionalty is trying to get the user to find themself, other is just to find any user, anyName changes the question possed to user deepending if the function needs just any name, or spesifcly the users name
+    /// - Returns: the entire user instance in the form of an aray
     func nameCheack(anyName: Bool) -> [Borower]{
         var nameInvaled = true
         if anyName{
