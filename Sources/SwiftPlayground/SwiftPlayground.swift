@@ -2,8 +2,9 @@
 // https://docs.swift.org/swift-book
 //this is the welcome mesage
 import Foundation
-//these are all the options the user has to pick from
+///these are all the things the user can do with the records
 let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name\nK.exit the libray"
+///the struct whitch keeps track of how many books there are, how mnay there are ment to be, and 
 struct Books: Equatable{
     let id: Int
     var bookTittle: String
@@ -25,17 +26,26 @@ struct Borower: Equatable{
 struct SwiftPlayground {
     static func main() {
         func thankYou() -> String{
-        //this is a collection of thank you messages presented when the user decides they are finished
+        ///this is a collection of thank you messages presented when the user decides they are finished
         let messages = ["Thank you  for visiting I told you so libray, where every book tried to warn you.", "We hope to see you again, but until then, rember, we told you so", "Until we see you agian, rember, we tried to warn you", "Thanks for coming, we hope to see you again, until then, rember, we told you so", "We hope you enjoyed being wanred", "We tried to warn you, the rest is up to you","do something about the world now, becuse we tried to warn you", "dont just sit there, we tried to warn you", "dont forget, we told you so", "We told you so"]
         //they are randomly gived using this code
         return(messages[Int.random(in: 1..<(messages.count-1))])
     }
-    
+        
+        /// this function is used by G, add item. it apends the users book to the alread existing book list
+        /// - Parameters:
+        ///   - newBookId: the id of the book that is being added by the user. this id is set using a reduce closer
+        ///   - addBookTittle: the book tittle provided by the user
+        ///   - addBookAuthor: the book auther provided by the user
+        ///   - addBookCount: the amount of copys there are, with a max of ten per book
         func addNewBook(newBookId: Int, addBookTittle: String, addBookAuthor:String, addBookCount: Int){
             bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
             print("\(addBookTittle) has been added, thank you!")
 
         }
+        /// this function will continue to repete a question until the user enters an input that is not a null, it is used exsclusivly for strings
+        /// - Parameter ask:the question for the user 
+        /// - Returns: the users imput that is not a null
         func isNull (ask:String) -> String{
             while true{
                 print(ask)
@@ -45,10 +55,14 @@ struct SwiftPlayground {
                 }
             }
         }
+        ///still here is what keeps track of weather the user wants to continue interacting with the interface, or is finished, when the user is finished, this would be set to false and the while loop would end
         var stillHere = true
-        let wellcome:String = "wellcome to the 'Told You So Libry', where every book tried to warn you, what are you looking to do today?"
+        ///wellcome message
+        let wellcome: String = "wellcome to the 'Told You So Libry', where every book tried to warn you, what are you looking to do today?"
+        ///prints the entire catalog of books
         func catalog(){
             var loop = 0
+            ///a list of all the books, there auther, how many are avalable, and most importently, a number to be called on by a user to indentafy it
             var listing = ["Place holder"]
             for book in bookList{
                 loop += 1
@@ -58,12 +72,14 @@ struct SwiftPlayground {
                 }
                 listing.append("\(loop).\(book.bookTittle) by \(book.bookAuther), \(book.copysAvalable) \(plural) avalable")
             }
+            //this is done to remove "place holder"
             listing.remove(at: 0)
             for list in listing{
                 print(list)
             }
             
             }
+        ///uses the catalog function to show the user options then gets there input on whitch book to select
         func bookSelection() -> Books{
             catalog()
             var askAgain = true
@@ -74,6 +90,7 @@ struct SwiftPlayground {
         if test == ""{
             invailedChoice = true
         }
+        //this to see if the input was a number, or a charecter, becuse if you convert a charecter to a int, the program will crash
         for n in (1...bookList.count){
             if test == String(n){
                 invailedChoice = false
@@ -92,7 +109,7 @@ struct SwiftPlayground {
         }
         }}
         }
-        //this is my starting colection of books for the "We told you so libray", where every book warns you about what you already let happen
+        ///starting colection of books for the "We told you so libray", it starts with 6 books
         var bookList = [Books(id: 1, bookTittle: "1984", bookAuther: "George Orwell", copys: 3, copysAvalable: 3), Books(id: 2, bookTittle: "the hunger games", bookAuther: "Suzanne Collins", copys: 5, copysAvalable: 4), Books(id: 3, bookTittle: "fahrenheit 451", bookAuther: "Ray Bradbury", copys: 1, copysAvalable: 1), Books(id: 4, bookTittle: "late capitalism", bookAuther: "Ernest Mandel", copys: 2, copysAvalable: 0), Books(id: 5, bookTittle: "the handmaid's tale", bookAuther: "Margaret Atwood",  copys: 2, copysAvalable: 2), Books(id: 6, bookTittle: "I have no mouth and I must scream", bookAuther: "Harlan Ellison", copys: 1, copysAvalable: 1)]
         //this is a list of people who are already regrested with the libray
         
