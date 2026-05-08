@@ -262,7 +262,6 @@ struct SwiftPlayground {
             if colectiveBookCount >= 9{
                 print("we already have \(preExisting[0].copys) copys of \(preExisting[0].bookTittle) in our collection, so we can only add \(10 - preExisting[0].copys) more copys")
                 addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
-                print(bookList)
             }
             else if colectiveBookCount == 10{
                 print("we already have 10 copys of \(preExisting[0].bookTittle) in our collection, so we can not house any more")
@@ -270,10 +269,14 @@ struct SwiftPlayground {
         }
         else{
             addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
-            print(bookList)
         }
                 
         }
+    else if line == "h"{
+        print("what book would you like to remove?")
+        bookSelection()
+
+    }
 
     }
     }
