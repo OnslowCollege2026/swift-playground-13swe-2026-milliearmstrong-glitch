@@ -274,10 +274,22 @@ struct SwiftPlayground {
         }
     else if line == "h"{
         print("what book would you like to remove?")
-        bookList.remove(at: bookList.firstIndex(of: bookSelection())!)
+        
         print("you are censoring the people by taking their books, they will not stand for it, this is the begining of the end for media litaralcy\n\n\n\n\nit has been removed")
     }
-    else if line ==
+    else if line == "I"{
+        print("what item would you like to edit?")
+        let editBook = bookSelection()
+        //bookList.remove(at: bookList.firstIndex(of: editBook)!)
+        if vailedCheack(options:["y","n"], ask: "would you like to edit the tittle?") == "y"{
+            (bookList.firstAp(of: editBook)!) isNull (ask:"Please enter the new tittle")
+
+        }
+        if vailedCheack(options:["y","n"], ask: "would you like to edit the author?") == "y"{
+            isNull (ask:"Please enter the new author")
+        }
+
+    }
 
     }
     }
