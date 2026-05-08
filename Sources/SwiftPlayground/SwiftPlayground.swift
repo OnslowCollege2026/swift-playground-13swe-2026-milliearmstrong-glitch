@@ -291,7 +291,11 @@ struct SwiftPlayground {
 
     }
     else{
-        
+        let nameEdit = nameCheack(anyName: true)
+        if vailedCheack(options:["y","n"], ask: "would you like to edit their name?") == "y"{
+            users[(users.firstIndex(of: nameEdit)!)].name = isNull (ask:"Please enter the new user name")
+        }
+
     }
 
     }
