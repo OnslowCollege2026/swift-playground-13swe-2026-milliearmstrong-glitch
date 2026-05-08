@@ -81,8 +81,7 @@ struct SwiftPlayground {
                 }
                 else{
                 askAgain = false
-                //return ((bookList[choice-1]).id)
-                return (choice-1)
+                return ((bookList[choice-1]).id)
                 }
         }
         }}
@@ -116,41 +115,12 @@ struct SwiftPlayground {
     }
     func updateUserBooks(M_Ws:[Borower], bookId: Int){
         var copysChange:Int
-        switch M_Ws[0].bookId{
+        switch bookId{
             case 0: copysChange = 1
-            default: 
-            copysChange = -1 
-            var userBook = bookList.filter { book in return (book.id) == (bookList[bookId].id)}
-            var userBookIndex = 0
-            let userBookIndexFinal = 0
-            for book in userBook{
-            userBookIndex += 1
-            if userBook[0] == book{
-                userBookIndex = userBookIndexFinal
-                userBook[userBookIndex].copysAvalable += 1
-                print(userBook)
-                print(bookList)
-            }
-        }
-            
-        }
-        if bookList[bookId].copysAvalable != 0{
-        bookList[bookId].copysAvalable -= 1
-        var userIndex = 0
-        for user in users{
-            userIndex += 1
-            if M_Ws[0] == user{
-                users[userIndex].bookId = bookList[bookId].id
-            }
+            default: copysChange = -1
         }
 
-        }
-        else{
-            print("sorry, that book is curently cheacked out")
-        }
-                            print(bookList)
-                    print(users)
-        /*
+        
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
@@ -160,7 +130,7 @@ struct SwiftPlayground {
         bookList = bookList.filter { book in return (book.id) != (userBook[0].id)} 
         bookList.append(Books(id: userCurent[0].id, bookTittle: userCurent[0].bookTittle, bookAuther: userCurent[0].bookAuther, copys: userCurent[0].copys, copysAvalable: (userCurent[0].copysAvalable) - copysChange))
         bookList.append(Books(id: userBook[0].id, bookTittle: userBook[0].bookTittle, bookAuther: userBook[0].bookAuther, copys: userBook[0].copys, copysAvalable: (userBook[0].copysAvalable) + copysChange))
-        */
+        print(bookList)
     }
     print(wellcome)
     func vailedCheack(options:[String], ask: String)-> String{
@@ -194,7 +164,6 @@ struct SwiftPlayground {
                 default:
                     print("done!")
                     updateUserBooks(M_Ws: M_Ws, bookId: bookId)
-
                 }
             }
             else{
@@ -282,11 +251,10 @@ struct SwiftPlayground {
                 }
             }}
         let preExisting = bookList.filter{$0.bookTittle == addBookTittle && $0.bookAuther == addBookAuthor}
-                                let allBookId = bookList.map{$0.id}
+                    let allBookId = bookList.map{$0.id}
             let newBookId = (allBookId.reduce(allBookId[0]) {result, number in
             return max(result, number)})+1
         if preExisting != []{
-
             print("\(addBookTittle) by \(addBookAuthor) is already in our catalog")
             let colectiveBookCount = preExisting[0].copys + addBookCount
             if colectiveBookCount >= 9{
