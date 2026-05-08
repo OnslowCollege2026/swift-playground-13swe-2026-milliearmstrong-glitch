@@ -128,6 +128,8 @@ struct SwiftPlayground {
             if userBook[0] == book{
                 userBookIndex = userBookIndexFinal
                 userBook[userBookIndex].copysAvalable += 1
+                print(userBook)
+                print(bookList)
             }
         }
             
