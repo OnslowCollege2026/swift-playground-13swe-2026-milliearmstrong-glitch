@@ -122,7 +122,7 @@ struct SwiftPlayground {
             copysChange = -1 
             var userBook = bookList.filter { book in return (book.id) == (bookList[bookId].id)}
             var userBookIndex = 0
-            var userBookIndexFinal = 0
+            let userBookIndexFinal = 0
             for book in userBook{
             userBookIndex += 1
             if userBook[0] == book{
@@ -190,6 +190,8 @@ struct SwiftPlayground {
                 default:
                     print("done!")
                     updateUserBooks(M_Ws: M_Ws, bookId: bookId)
+                    print(bookList)
+                    print(users)
                 }
             }
             else{
