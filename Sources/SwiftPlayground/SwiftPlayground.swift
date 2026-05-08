@@ -27,7 +27,11 @@ struct Borower: Equatable{
 @main
 struct SwiftPlayground {
     static func main() {
+        func addNewBook(newBookId: Int, addBookTittle: String, addBookAuthor:String, addBookCount: Int){
+            bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
+            print("\(addBookTittle) has been added, thank you!")
 
+        }
         func isNull (ask:String) -> String{
             while true{
                 print(ask)
@@ -119,8 +123,6 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: copysChange = -1
         }
-
-        
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
         users.append(Borower(id: M_Ws[0].id, name: M_Ws[0].name, bookId: bookId))
         var userBook = bookList.filter { book in return (book.id) == (bookId)} 
@@ -259,18 +261,15 @@ struct SwiftPlayground {
             let colectiveBookCount = preExisting[0].copys + addBookCount
             if colectiveBookCount >= 9{
                 print("we already have \(preExisting[0].copys) copys of \(preExisting[0].bookTittle) in our collection, so we can only add \(10 - preExisting[0].copys) more copys")
+                addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
                 print(bookList)
             }
             else if colectiveBookCount == 10{
                 print("we already have 10 copys of \(preExisting[0].bookTittle) in our collection, so we can not house any more")
-                bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
-                print(bookList)
             }
         }
         else{
-
-            bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
-            print("\(addBookTittle) has been added, thank you!")
+            addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
             print(bookList)
         }
                 
