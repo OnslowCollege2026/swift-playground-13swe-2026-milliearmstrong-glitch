@@ -311,11 +311,11 @@ struct SwiftPlayground {
         print("what item would you like to edit?")
         let editBook = bookSelection()
         //bookList.remove(at: bookList.firstIndex(of: editBook)!)
-        if vailedCheack(options:["y","n"], ask: "would you like to edit the tittle?") == "y"{
+        if vailedCheack(options:["y","n"], ask: "would you like to edit the tittle(y/n)?") == "y"{
             bookList[(bookList.firstIndex(of: editBook)!)].bookTittle = isNull (ask:"Please enter the new tittle")
 
         }
-        if vailedCheack(options:["y","n"], ask: "would you like to edit the author?") == "y"{
+        if vailedCheack(options:["y","n"], ask: "would you like to edit the author(y/n)?") == "y"{
             bookList[(bookList.firstIndex(of: editBook)!)].bookAuther = isNull (ask:"Please enter the new author")
         }
 
