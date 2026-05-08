@@ -237,7 +237,6 @@ struct SwiftPlayground {
         }
         
     }
-    
     else if line == "g"{
         print("what would you like to add to the collection?")
         let addBookTittle = isNull (ask:"Please enter the Tittle, be awear that this is case sensative")
@@ -273,13 +272,13 @@ struct SwiftPlayground {
             addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
         }
                 
-        }
+    }
     else if line == "h"{
         print("what book would you like to remove?")
         
         print("you are censoring the people by taking their books, they will not stand for it, this is the begining of the end for media litaralcy\n\n\n\n\nit has been removed")
     }
-    else if line == "I"{
+    else if line == "i"{
         print("what item would you like to edit?")
         let editBook = bookSelection()
         //bookList.remove(at: bookList.firstIndex(of: editBook)!)
