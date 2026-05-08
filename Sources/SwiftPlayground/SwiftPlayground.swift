@@ -41,8 +41,6 @@ struct SwiftPlayground {
                     return input
                 }
             }
-
-
         }
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
         var stillHere = true
