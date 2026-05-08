@@ -277,7 +277,11 @@ struct SwiftPlayground {
                 }
             }}
         let preExisting = bookList.filter{$0.bookTittle == addBookTittle && $0.bookAuther == addBookAuthor}
+                                let allBookId = bookList.map{$0.id}
+            let newBookId = (allBookId.reduce(allBookId[0]) {result, number in
+            return max(result, number)})+1
         if preExisting != []{
+
             print("\(addBookTittle) by \(addBookAuthor) is already in our catalog")
             let colectiveBookCount = preExisting[0].copys + addBookCount
             if colectiveBookCount >= 9{
@@ -291,9 +295,7 @@ struct SwiftPlayground {
             }
         }
         else{
-            let allBookId = bookList.map{$0.id}
-            let newBookId = (allBookId.reduce(allBookId[0]) {result, number in
-            return max(result, number)})+1
+
             bookList.append(Books(id: newBookId, bookTittle: addBookTittle, bookAuther: addBookAuthor, copys: addBookCount, copysAvalable: addBookCount))
             print("\(addBookTittle) has been added, thank you!")
             print(bookList)
