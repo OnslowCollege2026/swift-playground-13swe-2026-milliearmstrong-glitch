@@ -120,7 +120,8 @@ struct SwiftPlayground {
             case 0: copysChange = 1
             default: 
             copysChange = -1 
-            var userBook = bookList.filter { book in return (book.id) == (bookList[bookId].id)} 
+            var userBook = bookList.filter { book in return (book.id) == (bookList[bookId].id)}
+            
         }
         if bookList[bookId].copysAvalable != 0{
         bookList[bookId].copysAvalable -= 1
