@@ -160,6 +160,11 @@ struct SwiftPlayground {
         print(bookList)
     }
     print(wellcome)
+    /// cheacks the users imput agenst an aray of two or more options and continues to ask for the users imput until it is one of the options
+    /// - Parameters:
+    ///   - options: the options the user has to pick from
+    ///   - ask: the propting question for the user
+    /// - Returns: the final responce, whitch is once of the options
     func vailedCheack(options:[String], ask: String)-> String{
         var invailedResponce = true
         while invailedResponce{
