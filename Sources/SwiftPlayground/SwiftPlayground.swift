@@ -62,7 +62,7 @@ struct SwiftPlayground {
             }
             
             }
-        func bookSelection() -> Int{
+        func bookSelection() -> Books{
             catalog()
             var askAgain = true
         while askAgain{
@@ -85,7 +85,7 @@ struct SwiftPlayground {
                 }
                 else{
                 askAgain = false
-                return ((bookList[choice-1]).id)
+                return ((bookList[choice-1]))
                 }
         }
         }}
@@ -154,7 +154,7 @@ struct SwiftPlayground {
     
     if line == "a"{
         let M_Ws: [Borower] = nameCheack(anyName: false)
-        let bookId = bookSelection()
+        let bookId = bookSelection().id
         if M_Ws[0].bookId != 0{
             let usersBook = bookLoned(M_Ws: M_Ws)[0].bookTittle
             print("\(M_Ws[0].name) you already have \(usersBook) on loan.")
@@ -276,7 +276,7 @@ struct SwiftPlayground {
         print("what book would you like to remove?")
         bookSelection()
         print("you are censoring the people by taking their books, they will not stand for it, this is the begining of the end for media litaralcy\n\n\n\n\nit has been removed")
-        
+
     }
 
     }
