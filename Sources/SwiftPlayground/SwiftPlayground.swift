@@ -81,7 +81,8 @@ struct SwiftPlayground {
                 }
                 else{
                 askAgain = false
-                return ()
+                //return ((bookList[choice-1]).id)
+                return (choice)
                 }
         }
         }}
