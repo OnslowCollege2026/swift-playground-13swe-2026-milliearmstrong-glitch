@@ -312,7 +312,9 @@ struct SwiftPlayground {
             }
         }
         else{
-            if boo
+            if addBookCount > 10{
+                print("sorry but we cant not house more then 10 of one book")
+            }
             addNewBook(newBookId: newBookId, addBookTittle: addBookTittle, addBookAuthor:addBookAuthor, addBookCount: addBookCount)
         }
                 
