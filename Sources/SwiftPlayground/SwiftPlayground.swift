@@ -3,7 +3,7 @@
 //this is the welcome mesage
 import Foundation
 //these are all the options the user has to pick from
-let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit borrower records"
+let options = "A.Borow \nB.Return\nC.regerster as a user \nD.Veiw our catalog \nE.Serch for a spesific user \nF.serch for a specific book \nG.Add an Item \nH.Remove an item \nI.Edit an item \nJ.Edit a users name"
 struct Books: Equatable{
     let id: Int
     var bookTittle: String
@@ -19,7 +19,7 @@ struct Borower: Equatable{
     var name: String
     var bookId: Int
 
-    func thankYou()->String{
+    func thankYou() -> String{
         let messages = ["Thank you \(name) for visiting I told you so libray, where every book tried to warn you.", "We hope to see you again \(name), but until then, rember, we told you so", "Until we see you agian \(name), rember, we tried to warn you", "Thanks for coming \(name), we hope to see you again, until then, rember, we told you so", "We hope you enjoyed being wanred \(name)", "\(name), we tried to warn you, the rest is up to you","\(name), do something about the world now, becuse we tried to warn you", "do just sit there \(name), we tried to warn you", "dont forget, we told you so \(name)", "\(name), we told you so"]
         return(messages[Int.random(in: 1..<(messages.count-1))])
     }
@@ -149,7 +149,8 @@ struct SwiftPlayground {
     func bookLoned(M_Ws:[Borower]) -> [Books]{
     (bookList.filter { seen in return (seen.id) == M_Ws[0].bookId})
     }
-    let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+    let letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"]
+
     let line = vailedCheack(options:letterOptions, ask: options).lowercased()
     
     if line == "a"{
@@ -290,12 +291,13 @@ struct SwiftPlayground {
         }
 
     }
-    else{
+    else if line == "j"{
         let nameEdit = nameCheack(anyName: true)
-        if vailedCheack(options:["y","n"], ask: "would you like to edit their name?") == "y"{
-            users[(users.firstIndex(of: nameEdit)!)].name = isNull (ask:"Please enter the new user name")
-        }
-
+            users[(users.firstIndex(of: nameEdit[0])!)].name = isNull (ask:"Please enter the new user name")
+    }
+    else{
+        print("thank you for visting")
+        
     }
 
     }
