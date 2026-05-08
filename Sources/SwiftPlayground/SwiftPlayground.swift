@@ -85,39 +85,39 @@ struct SwiftPlayground {
         func bookSelection() -> Books{
             catalog()
             var askAgain = true
-        while askAgain{
-        print("please enter the corosponding number")
-        let test = readLine()!.lowercased()
-        var invailedChoice = true
-        if test == ""{
-            invailedChoice = true
-        }
-        //this to see if the input was a number, or a charecter, becuse if you convert a charecter to a int, the program will crash
-        for n in (1...bookList.count){
-            if test == String(n){
-                invailedChoice = false
-            }
-        }
-        if invailedChoice == false{
-            let choice = Int(test)!
-            if choice <= bookList.count && choice >= 1{
-                if (bookList[choice-1]).copysAvalable == 0{
-                    print("sorry that book is already on loan to another person")
+            while askAgain{
+                print("please enter the corosponding number")
+                let test = readLine()!.lowercased()
+                var invailedChoice = true
+                if test == ""{
+                    invailedChoice = true
                 }
-                else{
-                askAgain = false
-                return ((bookList[choice-1]))
+                //this to see if the input was a number, or a charecter, becuse if you convert a charecter to a int, the program will crash
+                for n in (1...bookList.count){
+                    if test == String(n){
+                        invailedChoice = false
+                    }
                 }
-        }
-        }}
+                if invailedChoice == false{
+                    let choice = Int(test)!
+                    if choice <= bookList.count && choice >= 1{
+                        if (bookList[choice-1]).copysAvalable == 0{
+                            print("sorry that book is already on loan to another person")
+                        }
+                        else{
+                            askAgain = false
+                            return ((bookList[choice-1]))
+                        }
+                }
+                }}
         }
         ///starting colection of books for the "We told you so libray", it starts with 6 books
         var bookList = [Books(id: 1, bookTittle: "1984", bookAuther: "George Orwell", copys: 3, copysAvalable: 3), Books(id: 2, bookTittle: "the hunger games", bookAuther: "Suzanne Collins", copys: 5, copysAvalable: 4), Books(id: 3, bookTittle: "fahrenheit 451", bookAuther: "Ray Bradbury", copys: 1, copysAvalable: 1), Books(id: 4, bookTittle: "late capitalism", bookAuther: "Ernest Mandel", copys: 2, copysAvalable: 0), Books(id: 5, bookTittle: "the handmaid's tale", bookAuther: "Margaret Atwood",  copys: 2, copysAvalable: 2), Books(id: 6, bookTittle: "I have no mouth and I must scream", bookAuther: "Harlan Ellison", copys: 1, copysAvalable: 1)]
-        //this is a list of people who are already regrested with the libray
-        
+        ///the regerstered users at the libray
         var users = [Borower(id: 1, name: "Dave", bookId: 2),  Borower(id: 2, name: "Leb", bookId: 4), Borower(id: 3, name: "Rose", bookId: 4), Borower(id: 4, name: "Scout", bookId: 0) ]
-        //var numList:[String]
-
+    /// finds a spesific user,
+    /// - Parameter anyName: 
+    /// - Returns: 
     func nameCheack(anyName: Bool) -> [Borower]{
         var nameInvaled = true
         if anyName{
