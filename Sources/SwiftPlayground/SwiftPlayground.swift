@@ -144,7 +144,7 @@ struct SwiftPlayground {
 
         }
         else{
-
+            print("sorry, that book is curently cheacked out")
         }
         /*
         users = users.filter { user in return (user.name) != (M_Ws[0].name)} 
