@@ -72,7 +72,6 @@ struct SwiftPlayground {
         if test == ""{
             vailedChoice = false
         }
-        if test.isNumeric
         for chr in (alphabet){
             if test.contains(chr){
                 vailedChoice = false
