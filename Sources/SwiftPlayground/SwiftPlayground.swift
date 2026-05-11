@@ -346,6 +346,5 @@ struct SwiftPlayground {
         stillHere = false
         
     }}
-
     }
     }
